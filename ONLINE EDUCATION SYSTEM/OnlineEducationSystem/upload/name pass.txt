@@ -1,0 +1,48 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class Text extends Frame implements ActionListener
+{
+    Label l1,l2,l3,l4;
+    Panel p1,p2;
+    TextField n1,pa1;
+    String str="name:   Password:  ";
+    
+    Text()
+    {
+        setTitle("ewfv");
+        setVisible(true);
+        setSize(500,500);
+        p1=new Panel();
+        p2=new Panel();
+        l4=new Label("enter your name end password",Label.CENTER);
+        l1=new Label("name",Label.LEFT);
+        n1=new TextField(12);
+        l2=new Label("password",Label.LEFT);
+        pa1=new TextField(10);
+        pa1.setEchoChar('*');
+        add(l4,BorderLayout.NORTH);
+       
+        p1.add(l1);
+        
+        p1.add(n1);
+        add(p1,BorderLayout.NORTH);
+        p2.add(l2);
+        p2.add(pa1);
+        l3=new Label(str,Label.LEFT);
+        add(l3,BorderLayout.SOUTH);
+        add(p2,BorderLayout.CENTER);
+     n1.addActionListener(this);
+     pa1.addActionListener(this);
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+        str ="Name: " + n1.getText();
+        str +="  Password: " + pa1.getText();
+l3.setText(str);    
+    }
+    
+    public static void main(String[] args) {
+        Text t1=new Text();
+    }
+}
